@@ -73,7 +73,7 @@
     <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
     <meta name="author" content="Bartek Szopka" />
 
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+<!--     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" /> -->
 
     <!--
         
@@ -362,14 +362,18 @@ if ("ontouchstart" in document.documentElement) {
     
 -->
 <script>
-function automatedPresentation(){
-var elements = document.querySelectorAll(".step"); 
-for (var index = 0; index < elements.length; index++) {
-    if elements[index].classList.contains('active')
-      var time = elements[index].dataset.duration;
-      setInterval.(function(){ api.next()}, time);  
-   }
-}
+// function automatedPresentation() {
+// var elements = document.querySelectorAll(".step"); 
+// for (var i = 0; i < elements.length; i++) {
+//     for (elements[i].classList.contains('active')) {
+//       var time = elements[i].dataset.duration;
+//       setInterval(function(){ api.next()}, time); 
+//       }
+//   }
+// }
+
+
+
 
 </script>
 
