@@ -183,11 +183,11 @@
         Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
         
     -->
-    <div class="step slide" data-x="0" data-y="-1500" data-duration="2000">
+    <div class="step slide" data-x="0" data-y="-1500" data-duration="1000">
         <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
     </div>
 
-    <div class="step slide" data-x="1000" data-y="-1500" data-duration="3000">
+    <div class="step slide" data-x="1000" data-y="-1500" data-duration="6000">
         <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
     </div>
 
@@ -362,10 +362,27 @@ if ("ontouchstart" in document.documentElement) {
     
 -->
 <script>
-  function automatedPresentation(){
-     setInterval(function(){ api.next()},3000);
-     }
+function automatedPresentation(){
+var elements = document.querySelectorAll(".step"); 
+for (var index = 0; index < elements.length; index++) {
+    if elements[index].classList.contains('active')
+      var time = elements[index].dataset.duration;
+      setInterval.(function(){ api.next()}, time);  
+   }
+}
+
 </script>
+
+<!--
+The same time for every step
+
+<script>
+ function automatedPresentation(){
+    setInterval(function(){ api.next()},3000);
+     }
+ </script>
+-->
+
 
 <script src="js/impress.js"></script>
 <script>
