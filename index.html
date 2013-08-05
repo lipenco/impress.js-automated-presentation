@@ -346,39 +346,33 @@ if ("ontouchstart" in document.documentElement) {
 }
 </script>
 
+
 <!--
-    
-    Last, but not least.
-    
-    To make all described above really work, you need to include impress.js in the page.
-    I strongly encourage to minify it first.
-    
-    In here I just include full source of the script to make it more readable.
-    
-    You also need to call a `impress().init()` function to initialize impress.js presentation.
-    And you should do it in the end of your document. Not only because it's a good practice, but also
-    because it should be done when the whole document is ready.
-    Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
-    
--->
-<script>
-// function automatedPresentation() {
-// var elements = document.querySelectorAll(".step"); 
-// for (var i = 0; i < elements.length; i++) {
-//     for (elements[i].classList.contains('active')) {
-//       var time = elements[i].dataset.duration;
-//       setInterval(function(){ api.next()}, time); 
-//       }
-//   }
-// }
+ // 
+ //   document.addEventListener('impress:stepenter', function(e){
+ //    if (typeof timing !== 'undefined') clearInterval(timing);
+ //    var duration = (e.target.getAttribute('data-transition-duration') ? e.target.getAttribute('data-transition-duration') : 2000); // use the set duration or fallback to 2000ms
+ //    timing = setInterval(impress.next, duration);
+ -->
 
-
-
-
+ <script>
+function automatedPresentation() {
+    document.addEventListener("impress:stepenter", function(e) {
+     if (typeof timing !== "undefined") {
+       clearInterval(timing);
+     }  
+     var duration = e.target.dataset.duration  
+     timing = setInterval(function(){ api.next()},duration); 
+     } 
+}
 </script>
+
+
+
 
 <!--
 The same time for every step
+
 
 <script>
  function automatedPresentation(){
@@ -388,10 +382,11 @@ The same time for every step
 -->
 
 
+
+
 <script src="js/impress.js"></script>
-<script>
-var api =impress(); api.init();  automatedPresentation();
-</script>
+<script> automatedPresentation(); impress().init();</script>
+<script>var api = impress();</script>
 
 <!--
     
