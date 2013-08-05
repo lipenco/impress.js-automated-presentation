@@ -349,7 +349,7 @@ if ("ontouchstart" in document.documentElement) {
 
 
  <!--    
- Codes for automated presentation     
+ Codes for automated presentation driven by data-duration    
  -->
 
 <script>
@@ -357,8 +357,11 @@ function automatedPresentation() {
     document.addEventListener("impress:stepenter", function(e) {
      if (typeof timing !== "undefined") {
        clearTimeout(timing);
-     }  
-     var duration = (e.target.dataset.duration ? e.target.dataset.duration: 3000) ;
+     } 
+     var duration = e.target.dataset.duration;
+     if (!duration) {
+        duration = 3000;
+     }
      timing = setTimeout(function(){ api.next()},duration); 
     }, false);
 }
