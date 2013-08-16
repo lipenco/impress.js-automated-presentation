@@ -354,16 +354,18 @@ if ("ontouchstart" in document.documentElement) {
 
 <script>
 function automatedPresentation() {
-    document.addEventListener("impress:stepenter", function(e) {
-     if (typeof timing !== "undefined") {
-       clearTimeout(timing);
-     } 
-     var duration = e.target.dataset.duration;
-     if (!duration) {
-        duration = 3000;
-     }
-     timing = setTimeout(function(){ api.next()},duration); 
+    document.addEventListener("impress:stepenter", function (e) {
+        var duration = e.target.dataset.duration;
+        if (!duration) {
+            duration = 3000;
+        }
+        var timing = setTimeout(function() {
+        api.next()
+        }, duration);
     }, false);
+    if (typeof timing !== "undefined") {
+        clearTimeout(timing);
+    }
 }
 </script>
 
@@ -371,10 +373,12 @@ function automatedPresentation() {
 <!--
 The same time for every step
 <script>
- function automatedPresentation(){
-    setInterval(function(){ api.next()},3000);
-     }
- </script>
+    function automatedPresentation() {
+        setInterval(function () {
+            api.next()
+        }, 3000);
+    }
+</script>
 -->
 
 
